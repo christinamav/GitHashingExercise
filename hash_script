@@ -1,0 +1,32 @@
+#!/bin/bash
+
+#check number of input arguments
+if [ $# -ne 1 ]; then
+	echo "Incorrect number of input arguments."
+	echo "Usage: ./hash script <4-digit integer>"
+	exit 1
+fi
+
+#check length of second input argument
+if [ ${#1} -ne 4 ]; then
+	echo "Incorrect length of second input argument."
+	echo "Please give a 4-digit integer."
+	exit 1
+fi
+
+#check type of second input argument
+if [[ ! $1 =~ ^[0-9]+$ ]]; then
+	echo "Incorrect type of second input argument."
+	echo "Please give a 4-digit integer."
+	exit 1
+fi
+
+
+#4-digit integer input
+integer="$1"
+
+#compute hash of the input, using SHA-256 hashing algorithm
+hash=$(echo -n "$integer" | sha256sum)
+
+echo "$hash"
+
