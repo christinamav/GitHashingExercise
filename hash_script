@@ -3,7 +3,7 @@
 #check number of input arguments
 if [ $# -ne 1 ]; then
 	echo "Incorrect number of input arguments."
-	echo "Usage: ./hash script <4-digit integer>"
+	echo "Usage: ./hash_script <4-digit integer>"
 	exit 1
 fi
 
